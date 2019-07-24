@@ -1,66 +1,90 @@
 <template lang="pug">
 section#song-card
-  .songcard(:id='"songcard-"+index', key='{index')
-    .grad-bg-light(:id='"grad-bg-light-"+index')
-    .grad-bg-dark(:id='"grad-bg-dark-"+index')
-    .artholder(:id='"artholder-"+index')
-      canvas.art_canv(:id='"art_canv-"+index', :src='song.albumArt')
-      img.art(src="https://via.placeholder.com/300x300", :id='"art-"+index')
-      .playfader(:id='"playfader-"+index')
-        button.playbutton
-          label.pausebutton
-            input.pausecheck(:id='"pausecheck-"+index', type='checkbox' onclick='{()') 
-            .pp-p1
-            .pp-p2
-        .songloader(:id='"songloader-"+index')
-    .songinfo.songinfo_light(:id='"songinfo-light-"+index')
-      .bio(:id='"bio-light-"+index')
-        .albumtag 
-        .nametag 
-        span.artisttag( :id="'artisttag-light-'+index") {{JSON.stringify(song.authors)}}
-      .seperator(:id='"seperator-light-"+index')
-    .songinfo.songinfo_dark(:id='"songinfo-dark-"+index')
-      .bio(:id='"bio-dark-"+index')
-        .albumtag(:id='"albumtag-dark-"+index') {{song.album}}
-        .nametag(:id='"nametag-dark-"+index') {{song.name}}
-        span.artisttag(:id='"artisttag-dark-"+index') {{JSON.stringify(song.authors)}}
-      .seperator(:id='"seperator-dark-"+index')
+	.songcard(:id="'songcard-'+index" ref="card")
+		.grad-bg-light(:id='"grad-bg-light-"+index')
+		.grad-bg-dark(:id='"grad-bg-dark-"+index')
+		.artholder(:id='"artholder-"+index')
+			canvas.art_canv(:id='"art_canv-"+index' :src='song.albumArt')
+			img.art(:src="song.albumArt" :id='"art-"+index')
+			.playfader(:id='"playfader-"+index')
+				button.playbutton
+					label.pausebutton
+						input.pausecheck(:id='"pausecheck-"+index' type='checkbox' onclick='{()') 
+						.pp-p1
+						.pp-p2
+				.songloader(:id='"songloader-"+index')
 
-    //- .loadingMask(:id='"loadingMask-"+index')
-      .loadAuthorBox(:id='"loadAuthorbox-"+index')
-      .loadTitleBox(:id='"loadTitleBox-"+index')
-      .loadAlbumBox(:id='"loadAlbumBox-"+index')
+		.songinfo.songinfo_light(:id='"songinfo-light-"+index')
+			.bio(:id='"bio-light-"+index')
+				.albumtag {{song.album}}
+				.nametag {{song.name}}
+				span.artisttag( :id="'artisttag-light-'+index") {{authorList}}
+			.seperator(:id='"seperator-light-"+index')
+
+		.songinfo.songinfo_dark(:id='"songinfo-dark-"+index')
+			.bio(:id='"bio-dark-"+index')
+				.albumtag(:id='"albumtag-dark-"+index') {{song.album}}
+				.nametag(:id='"nametag-dark-"+index') {{song.name}}
+				span.artisttag(:id='"artisttag-dark-"+index') {{authorList}}
+			.seperator(:id='"seperator-dark-"+index')
+
+		//- .loadingMask(:id='"loadingMask-"+index')
+			.loadAuthorBox(:id='"loadAuthorbox-"+index')
+			.loadTitleBox(:id='"loadTitleBox-"+index')
+			.loadAlbumBox(:id='"loadAlbumBox-"+index')
 
 </template>
 
 <script>
 export default {
-  name: 'SongCard',   
-  data() {
-    return {
-    }
-  },
-  methods:{    
-  },
-  props: {
-    index:{
-      type:Number
-    },
-    song:{
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  }
+	name: 'SongCard',   
+	data() {
+		return {
+		}
+	},
+	methods:{    
+	},
+	computed:{
+		authorList(){
+			let authList = ""
+			this.song.authors.map((auth,index)=>{
+				if (index!= (this.song.authors.length-1)){
+					authList += auth+", "
+				}else{
+					authList += auth
+				}
+			})
+			return authList
+		}
+	},
+	mounted(){
+		this.$refs.card.style.setProperty('--dk_bg1', this.song.colors.dk_bg1);
+		this.$refs.card.style.setProperty('--dk_bg2', this.song.colors.dk_bg2);
+		this.$refs.card.style.setProperty('--dk_pt', this.song.colors.dk_pt);
+		this.$refs.card.style.setProperty('--dk_st', this.song.colors.dk_st);
+		this.$refs.card.style.setProperty('--lt_bg1', this.song.colors.lt_bg1);
+		this.$refs.card.style.setProperty('--lt_bg2', this.song.colors.lt_bg2);
+		this.$refs.card.style.setProperty('--lt_pt', this.song.colors.lt_pt);
+		this.$refs.card.style.setProperty('--lt_st', this.song.colors.lt_st);
+	},
+	props: {
+		index:{
+			type:Number
+		},
+		song:{
+			type: Object,
+			default() {
+				return {}
+			}
+		}
+	}
 }
 </script>
 
 <style scoped lang="stylus">
-.allsongs
-	//max-width 1000px
-	margin 0 auto
-	background white
+playscale = 70%
+main-color = #f5d154
+
 .songcard
 	width calc(100%);
 	height 15vmax
@@ -70,14 +94,7 @@ export default {
 	display flex
 	background white
 	transition .5s ease
-	//margin-bottom 20px
-// .seperator
-// 	position absolute
-// 	bottom -5% 
-// 	background black
-// 	width 100%
-// 	height 1px
-// 	background: radial-gradient(black,transparent, transparent);
+	
 .activeSongCard
 	height 30vmax
 	max-height 270px
@@ -90,18 +107,12 @@ export default {
 .grad-bg-dark	
 	clip-path: polygon(0 0, 0% 0, 00% 100%, 0 100%);
 	animation reveal2 0s ease-out 4s alternate infinite
+	background linear-gradient(to right, var(--dk_bg1), var(--dk_bg2))
 .activeBackground
 	animation-duration 6s
 .songinfo_dark
 	clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 	animation reveal1 0s ease-out 4s alternate infinite
-// @keyframes reveal1{
-// 	from{		clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);	}
-// 	to{	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);	}
-// }@keyframes reveal2{
-// 	from{		clip-path: polygon(0 0, 30% 0, 30% 100%, 0 100%);	}
-// 	to{	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);}
-// }
 .artholder
 	position relative
 	width 30%
@@ -136,12 +147,6 @@ export default {
 		opacity 1
 .playbutton
 	position absolute
-	// top calc((100% - 12vmin)/2)
-	// left calc((100% - 12vmin)/2)
-	// width 12vmin
-	// height 12vmin
-	// line-height 12vmin
-	// font-size 9vmin
 	top calc((100% - 11vmin)/2)
 	right 3vmin
 	width 10vmin
@@ -151,9 +156,21 @@ export default {
 	color white
 	text-align center
 	border-radius 100%
-	background-color turquoise
+	background-color var(--dk_bg2)
 	border 0px solid transparent
 	transition .4s ease
+
+.songinfo_light
+	.albumtag, .artisttag
+		color var(--lt_st)
+	.nametag
+		color var(--lt_pt)
+.songinfo_dark
+	.albumtag, .artisttag
+		color var(--dk_st)
+	.nametag
+		color var(--dk_pt)
+
 .playglyph
 	position absolute
 	left 1.9vmin
@@ -165,12 +182,14 @@ export default {
 	top 0
 	width 100%
 	height 100%
+	background linear-gradient(to right, var(--lt_bg1), var(--lt_bg2))
 	position absolute
 .grad-bg-dark	
 	//transform translateY(-100%)
 	top 0
 	width 100%
 	height 100%
+	background linear-gradient(to right, var(--dk_bg1), var(--dk_bg2))
 	position absolute
 .bio
 	position absolute
@@ -261,4 +280,47 @@ export default {
 	width 10px
 	height 10px
 	margin 2px
+
+
+.pausebutton
+	width 50px
+	height 50px
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(0deg);
+	transition .1s ease
+.pp-p1,.pp-p2
+	width playscale
+	height playscale
+	background white
+	position: absolute;
+	transition .2s ease-in
+	left: 50%;
+	top: 50%;
+.pp-p1
+	transform: translate(0%, -50%);
+	clip-path: polygon(0 23%, 60% 50%,55% 50%, 0 76%);
+.pp-p2
+	transform: translate(-42%, -50%);
+	clip-path: polygon(0 2%, 43% 23%, 43% 76%, 0% 96%);
+	
+.pausebutton input {display:none;}	
+input:checked ~ .pp-p1 {
+  clip-path: polygon(10% 10%, 40% 10%, 40% 90%, 10% 90%);
+	//transform: translate(-40%, -50%) rotate(-180deg);
+}
+input:checked ~ .pp-p2 {
+  clip-path: polygon(0 10%, 30% 10%, 30% 90%, 0% 90%);
+	//transform: translate(-110%, -50%) rotate(180deg);
+}
+input:checked > .pausebutton {
+  //transform: translate(-50%, -50%) rotate(180deg);
+}
+
+	
+.pausebutton:active
+	transition .05s linear
+	//transform: translate(-50%, -50%) scale(1.05);
+
 </style>

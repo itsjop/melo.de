@@ -1,22 +1,45 @@
+/*
+TODO:
+FINISH-
+  Get the sidebar passing the correct values
+  Get Songs playing correctly
+    Pass songs upwards when asking for a new track
+    Make songs play from root to allow free navigation
+  Track Mouse Position for tracking through songs
+  Fix all the fucking CSS good god what was I thinking
+
+FIX - 
+  Align the text to top or bottom to make tracking easier
+  Fix the Backdrop for the text that won't allow tracking
+  New Card layout for mobile view that has short, fullwidth art
+    Also make the text full link to a different page
+
+FUTURE -
+  Research Nuxt to see how it could help
+  Create standalone pages and URL routing for
+    Artist, Song, Album
+  Determine when links should open the side bar
+
 <template lang="pug">
 #app
-  //- site-header
+  site-header(:user="user")
   mainpane(:songList="songs")
   main-trackbar
   //- song-upload
 
-  .reptiles
-    .lizard-adder
-      input(type='text' v-model='newReptile' @keyup.enter='addReptile')
-      button(@click='addReptile') Add Reptile
-      router-link(to='/') Home
-      router-link(to='/about') About
-    ul.reptileList
-      li(v-for='reptile in reptiles') {{ reptile.name }} -
-        button(@click='deleteReptile(reptile)') Remove
+  //- .reptiles
+  //-   .lizard-adder
+  //-     input(type='text' v-model='newReptile' @keyup.enter='addReptile')
+  //-     button(@click='addReptile') Add Reptile
+  //-     router-link(to='/') Home
+  //-     router-link(to='/about') About
+  //-   ul.reptileList
+  //-     li(v-for='reptile in reptiles') {{ reptile.name }} -
+  //-       button(@click='deleteReptile(reptile)') Remove
 </template>
 
 <script>
+  import './assets/reset.css'
   import { db } from './firebase';
   import Mainpane from "./views/MainPane"
   import MainTrackbar from "./components/MainTrackbar/MainTrackbar"
@@ -26,6 +49,10 @@
     name: 'app',
     data() {
       return {
+        user:{
+          avatarURL:"",
+          name: "jop"
+        },
         reptiles: [],
         users: [],
         songs: [],
@@ -53,6 +80,9 @@
         this.$firestore.reptiles.doc(reptile['.key']).delete();
       }
     },
+    created(){
+      this.user.avatarURL="https://picsum.photos/id/"+(Math.floor(Math.random()*500))+"/200/200"
+    },
     components:{
       Mainpane,
       MainTrackbar,
@@ -74,6 +104,6 @@ body
   width 100vw
   height 100vh
   font-family: Montserrat, sans-serif
-  background: linear-gradient(to left, d-purple, l-purple)
+  background: linear-gradient(to left, #f4edf5, #f4edf5)
 
 </style>
