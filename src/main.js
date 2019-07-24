@@ -4,7 +4,10 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 
-Vue.config.productionTip = false
+import VueFirestore from 'vue-firestore';
+Vue.use(VueFirestore);
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,

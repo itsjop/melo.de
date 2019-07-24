@@ -1,0 +1,280 @@
+{
+  "users": [
+    {
+      "username": "arraysOne",
+      "name": "Arrays Start At One",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=arrays+one",
+      "bio": "Arrays start at one like everything else, and how like God intended. If you think otherwise you can come and fight me yourself.",
+      "location": "Montana, USA",
+      "socialLinks": {
+        "spotify": "",
+        "facebook": "",
+        "youtube": "",
+        "insta": "",
+        "other1": "0.0.0.0",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        32,
+        38
+      ],
+      "totalFollowers": 12,
+      "totalPlays": 1447,
+      "totalLikes": 29,
+      "totalShares": 2,
+      "likes": [
+        1277,
+        476215,
+        414
+      ]
+    },
+    {
+      "username": "jop",
+      "name": "hey its me jop",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=jop",
+      "bio": "Level 12 Crimbomancer. Built this place myself.",
+      "location": "Level 12 Crimbomancer",
+      "socialLinks": {
+        "spotify": "",
+        "facebook": "",
+        "youtube": "",
+        "insta": "",
+        "other1": "http:\/\/lame.space",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        0
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        27
+      ]
+    },
+    {
+      "username": "rodscheinkens",
+      "name": "Rod Scheinkens",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Rod+Scheinkens",
+      "bio": "If you're lost, you're now found. Come and stay a while.",
+      "location": "Vienna, Austria",
+      "socialLinks": {
+        "spotify": "rodscheinkens",
+        "facebook": "rodscheinkens",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/rodscheinkens.com",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        0
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        4,
+        3,
+        6,
+        2
+      ]
+    },
+    {
+      "username": "pyrtyzoenoffical",
+      "name": "PYRTY ZOEN",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Pyrty+Zoen",
+      "bio": "PYRTYZOEN OFFICAL HANGOUT SEPTEMBER 12 AUSTIN TEXAS - 3PM AT THE TRINTAGO MUSIC HALL. CANT WAIT TO SEE YOU THERE!",
+      "location": "Dallas, Texas",
+      "socialLinks": {
+        "spotify": "pyrtyzoenoffical",
+        "facebook": "pyrtyzoen",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/pyrtyzoen.com",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        1
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        6,
+        5,
+        2
+      ]
+    },
+    {
+      "username": "arkivet",
+      "name": "Arkivet",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Arkivet",
+      "bio": "Liminal Spaces in Middling Cases",
+      "location": "3am Gas Station",
+      "socialLinks": {
+        "spotify": "arkivet",
+        "facebook": "arkivetofficial",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/arkivetmusic.com",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        2
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        0,
+        4,
+        7
+      ]
+    },
+    {
+      "username": "concussions-music",
+      "name": "The Concussions",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Concussions",
+      "bio": "Come. Solve. Conquer your foes.",
+      "location": "The Ring",
+      "socialLinks": {
+        "spotify": "concussions",
+        "facebook": "concussionsmusic",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/concussions.band",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        3
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        6,
+        5,
+        4
+      ]
+    },
+    {
+      "username": "computer-and-the-brain",
+      "name": "Computer & The Brain",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Computer",
+      "bio": "01110100 01101000 01100001 01101110 01101011 01110011 00100000 01100110 01101111 01110010 00100000 01101100 01101111 01101111 01101011 01101001 01101110 01100111 00100000 01110101 ",
+      "location": "Meatspace",
+      "socialLinks": {
+        "spotify": "computer-n-brain",
+        "facebook": "CNTBmusic",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/brain.computer",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        4
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        7,
+        3
+      ]
+    },
+    {
+      "username": "starlite",
+      "name": "Starlite",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Starlite",
+      "bio": "Wash over us all.<br>New East Coast tour. Check <a src=\"http:\/\/bit.ly\/StarliteTours\">http:\/\/bit.ly\/StarliteTours<\/a> for more information",
+      "location": "Frankfort, Kentucky",
+      "socialLinks": {
+        "spotify": "starlite",
+        "facebook": "starlitemusic",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/starlitemusic.com",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        5
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        0,
+        6
+      ]
+    },
+    {
+      "username": "loner-blood",
+      "name": "Loner Blood",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Loner+Blood",
+      "bio": "aw man i dont know what to put here",
+      "location": "",
+      "socialLinks": {
+        "spotify": "lonerblood",
+        "facebook": "lonerbloodmusic",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/lonerblood.com",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        6
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        7,
+        4
+      ]
+    },
+    {
+      "username": "failure-impossible",
+      "name": "Failure Impossible",
+      "avatar": "https:\/\/via.placeholder.com\/300x300?text=Failure+Impossible",
+      "bio": "We're Failure Impossible. Thanks for visiting.",
+      "location": "Milwaukee, Wisconsin",
+      "socialLinks": {
+        "spotify": "lonerblood",
+        "facebook": "lonerbloodmusic",
+        "youtube": "57414114844",
+        "insta": "",
+        "other1": "http:\/\/lonerblood.com",
+        "other2": "",
+        "other3": ""
+      },
+      "songs": [
+        7
+      ],
+      "totalFollowers": 420,
+      "totalPlays": 9001,
+      "totalLikes": 69,
+      "totalShares": 0,
+      "likes": [
+        1,
+        6
+      ]
+    }
+  ]
+}
