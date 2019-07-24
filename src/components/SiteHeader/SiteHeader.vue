@@ -6,7 +6,7 @@ section#mainHeader
 		input(type="search" :placeholder="searchPhrases[Math.floor(Math.random()*searchPhrases.length)]")
 	.userblock
 		.upload-button(@click="showUploadPanel()") Upload
-		img.useravatar(:src="user.avatarURL" :alt='user.name')
+		img.useravatar(:src="user.avatarURL ? user.avatarURL : '/user.png'" :alt='user.name')
 		.username-text {{user.name}} &#x25BC;
 
 </template>
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
 			searchPhrases:[
-				"Find a new Jam.",
+				"Find a new Jam:",
 				"Search for something",
 			]
     }
@@ -91,6 +91,8 @@ d-purple = #42275a
 		padding 7px
 		border-radius 3px
 		border 0px
+		&::placeholder, &::-moz-placeholder 
+			opacity .3
 
 
 .userblock

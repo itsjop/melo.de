@@ -10,9 +10,14 @@ FINISH-
 
 FIX - 
   Align the text to top or bottom to make tracking easier
-  Fix the Backdrop for the text that won't allow tracking
-  New Card layout for mobile view that has short, fullwidth art
+    Currently Absolutlely positioned so you'll have to re-grid it
+    Fix the Backdrop for the text that won't allow tracking
+    Disable interacting with / highlighting the text while dragging
+  New Card layout for mobile view that has short, 80% centered art
+    Diagonal gradient border
     Also make the text full link to a different page
+    Disable dragging entirely on the mobile view
+
 
 FUTURE -
   Research Nuxt to see how it could help
@@ -50,7 +55,7 @@ FUTURE -
     data() {
       return {
         user:{
-          avatarURL:"",
+          avatarURL:"/user.png",
           name: "jop"
         },
         reptiles: [],
@@ -81,7 +86,7 @@ FUTURE -
       }
     },
     created(){
-      this.user.avatarURL="https://picsum.photos/id/"+(Math.floor(Math.random()*500))+"/200/200"
+      // this.user.avatarURL="https://picsum.photos/id/"+(Math.floor(Math.random()*500))+"/200/200"
     },
     components:{
       Mainpane,
