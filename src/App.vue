@@ -104,11 +104,17 @@ FUTURE -
 l-purple = #734b6d
 d-purple = #42275a
 
+:root
+  --toolbar-size: 50px
+  --l-purple: #734b6d
+  --d-purple: #42275a
+
 body
   margin 0
   width 100vw
   height 100vh
   font-family: Montserrat, sans-serif
   background: linear-gradient(to left, #f4edf5, #f4edf5)
+  background: linear-gradient(to left, var(--l-purple), var(--d-purple))
 
 </style>

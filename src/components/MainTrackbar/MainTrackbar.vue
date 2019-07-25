@@ -56,7 +56,7 @@ main-color = #f5d154
 
 #main-trackbar
 	width 100%
-	height 50px
+	height var(--toolbar-size)
 	background transparent
 	position fixed 
 	bottom 0
