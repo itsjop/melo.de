@@ -98,7 +98,7 @@ main-color = #f5d154
 	display grid 
 	width 100%
 	height 70vw
-	grid-template-columns 1fr 9fr 1fr
+	grid-template-columns 2fr 12fr .5fr
 	grid-template-rows 1fr 14fr 1fr
 	.grad-bg-light, .grad-bg-dark
 		grid-row 1/4
@@ -106,7 +106,10 @@ main-color = #f5d154
 	// .grad-bg-dark
 	// 	background linear-gradient(to right, var(--dk_bg1), var(--dk_bg2))
 	.grad-bg-light
-		background linear-gradient(to right, var(--lt_bg1), var(--lt_bg2))
+		background linear-gradient(45deg, var(--lt_bg1), var(--lt_bg2))
+		transform scale(1.2) translateY(8%)
+		z-index -1
+		filter blur(20px)
 	.songinfo
 		width 100%
 		color white
@@ -124,20 +127,21 @@ main-color = #f5d154
 			grid-template-rows auto auto auto
 			justify-items start 
 			margin 5px
+			transform translateX(-10vw)
 		.albumtag, .nametag, .artisttag
-			width calc(100% - 6px)
 			white-space: pre-line;
 			max-height 2.8em
 			background green
 			overflow: hidden;
 			text-overflow: ellipsis;
+			font-size 4vw
 			line-height 1.4em
 			padding 0px 3px
 			background linear-gradient(to right, var(--dk_bg1), var(--dk_bg2))
 	.artholder
 		grid-row 2/3
 		grid-column 2/3
-		border 2px solid black
+		// border 2px solid black
 		overflow hidden
 		// transform translateY(-20%)
 		img
@@ -192,6 +196,8 @@ main-color = #f5d154
 		// 		.pp-p2
 		// 			transform: translate(-42%, -50%);
 		// 			clip-path: polygon(0 2%, 43% 23%, 43% 76%, 0% 96%);
+
+
 
 .songcard.desktop
 	width calc(100%);

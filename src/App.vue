@@ -117,4 +117,7 @@ body
   background: linear-gradient(to left, #f4edf5, #f4edf5)
   background: linear-gradient(to left, var(--l-purple), var(--d-purple))
 
+#app
+  display grid
+
 </style>
