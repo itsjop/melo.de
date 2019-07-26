@@ -4,13 +4,7 @@ require("firebase/firestore");
 
 // Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
-  apiKey: "AIzaSyBVftjnw_KABlQuQBJ1rIvoLVKuHd5C12Y",
-  authDomain: "melode-0451.firebaseapp.com",
-  databaseURL: "https://melode-0451.firebaseio.com",
-  projectId: "melode-0451",
-  storageBucket: "melode-0451.appspot.com",
-  messagingSenderId: "569481564780",
-  appId: "1:569481564780:web:41d55a1eb4901d3b"
+
 });
   
 var db = firebase.firestore();

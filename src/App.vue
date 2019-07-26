@@ -45,7 +45,7 @@ FUTURE -
 
 <script>
   import './assets/reset.css'
-  import { db } from './firebase';
+  import { db } from './firebase.js';
   import Mainpane from "./views/MainPane"
   import MainTrackbar from "./components/MainTrackbar/MainTrackbar"
   import SiteHeader from "./components/SiteHeader/SiteHeader"

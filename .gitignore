@@ -1,9 +1,10 @@
 .DS_Store
 node_modules
 /dist
-/src/firebase
+/src/firebase.js
 /bin
 /lib
+json-to-firestore.js
 serviceAccount.json
 # local env files
 .env.local
