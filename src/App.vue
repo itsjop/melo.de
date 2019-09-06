@@ -17,7 +17,7 @@ FIX -
     Diagonal gradient border
     Also make the text full link to a different page
     Disable dragging entirely on the mobile view
-
+ 
 
 FUTURE -
   Research Nuxt to see how it could help
