@@ -1,4 +1,4 @@
-# melo.de
+# melode
 
 ## Project setup
 ```

@@ -6,6 +6,8 @@ node_modules
 /lib
 json-to-firestore.js
 serviceAccount.json
+.travis.yml
+
 # local env files
 .env.local
 .env.*.local
