@@ -1,11 +1,12 @@
 <template lang="pug">
 section#main-pane
   .centerpane
-    h1 Your Top Songs:
+    h1 Your Home Feed:
     .allsongs
       song-card(v-for="(song, index) in songList" :song="song" :key="song.name" :index="index")
   sidepane
 </template>
+
 
 <script>
 import SongCard from "../components/SongCard/SongCard"
@@ -33,15 +34,16 @@ export default {
 }
 </script>
 
-<style lang="stylus">
 
+<style lang="stylus">
 #main-pane
   display grid 
   width 100vw
   justify-self center
   justify-content center
   justify-items center
-  max-width 1400px
+  max-width 1700px
+  margin-top 20px
   grid-template\
     "centerpane" 1fr\
     / 5fr 
@@ -49,7 +51,8 @@ export default {
   #main-pane
     grid-template\
       "centerpane sidepane" 1fr\
-      / 5fr 1fr
+      / 4fr 1fr
+    column-gap 20px
 
 .centerpane
   grid-area centerpane
@@ -58,7 +61,7 @@ export default {
   h1
     font-size 2em
     padding 5px
-    margin 20px 10px 0
+    margin 0px 10px 10px
     color white
     // background black
     display inline 
@@ -71,7 +74,7 @@ export default {
     display grid
     overflow hidden
     .song-card:first-child
-        border-radius 20px 0px 0 0
+        border-radius 20px 20px 0 0
     .song-card:last-child
       border-radius 0 0 20px 20px
 // @keyframes reveal1{

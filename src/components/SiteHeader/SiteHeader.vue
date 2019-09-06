@@ -1,7 +1,8 @@
 <template lang="pug">
 section#mainHeader
 	a.logo(src='#')
-		img.headlogo.full-logo(src='/soundify.svg')
+		img.headlogo.short-logo(src='/soundify.svg')
+		img.headlogo.full-logo(src='/soundify-logo-full.svg')
 	.header-search
 		input(type="search" :placeholder="searchPhrases[Math.floor(Math.random()*searchPhrases.length)]")
 	.userblock
@@ -71,9 +72,13 @@ d-purple = #42275a
 	.logo
 		height headerSize
 		grid-area logo
-	.logo img
-		height headerSize 
-		max-width 70px
+	.logo
+		img
+			height headerSize 
+			max-width 70px
+		.full-logo
+			max-width 200px
+			height 110%
 	.full-logo
 		// clip-path: polygon(0 0, 34% 0, 31% 100%, 0% 100%);
 		transition 1s ease-out
@@ -123,4 +128,11 @@ d-purple = #42275a
 	left 0
 	pointer-events none
 
+
+@media (min-width: 1400px)
+	.short-logo 
+		display none
+@media (max-width: 1400px)
+	.full-logo 
+		display none
 </style>
