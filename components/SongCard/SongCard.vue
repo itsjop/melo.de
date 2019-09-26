@@ -20,15 +20,15 @@ section.song-card(ref="card")
 
 		.songinfo.songinfo_light
 			.bio.bio-light
-				.tag.albumtag {{song.album}}
-				.tag.nametag {{song.name}}
-				.tag.artisttag {{authorList}}
+				.tag.albumtag(@click.stop="$emit('sidebarToggle',{type:'album',id:'234'})") {{song.album}}
+				.tag.nametag(@click.stop="$emit('sidebarToggle',{type:'song',id:'2345'})") {{song.name}}
+				.tag.artisttag(@click.stop="$emit('sidebarToggle',{type:'artist',id:'63456'})") {{authorList}}
 
 		.songinfo.songinfo_dark
 			.bio.bio-dark
-				.tag.albumtag {{song.album}}
-				.tag.nametag {{song.name}}
-				.tag.artisttag {{authorList}}
+				.tag.albumtag(@click="$emit('sidebarToggle',{type:'album',id:'4572'})") {{song.album}}
+				.tag.nametag(@click="$emit('sidebarToggle',{type:'song',id:'2457'})") {{song.name}}
+				.tag.artisttag(@click="$emit('sidebarToggle',{type:'artist',id:'1357'})") {{authorList}}
 
 		//- .loadingMask(:id='"loadingMask-"+index')
 			.loadAuthorBox(:id='"loadAuthorbox-"+index')
@@ -213,23 +213,28 @@ main-color = #f5d154
 	position relative
 	display flex
 	background white
-	transition .5s ease
+	transition .4s ease
 	border-radius inherit
 	active-transition()
 		transition .4s cubic-bezier(0.680, -0.550, 0.265, 1.550)
+
 	&.active-card	// Changes to when the card is active and expanded
 		height 30vmax
 		max-height 270px
 		.artholder
-			width 40%
+			width 30%
 			.art
-				mask-position 00% 00%
+				mask-position 20% 00%
 			.playfader
 				.playbutton
+					active-transition()
 					transform translateX(80%)
 		.songinfo
-			width 60%
-			grid-template-columns 2fr 8fr 1fr
+			width 70%
+			grid-template-columns 1.5fr 8fr 1fr
+			&.songinfo_dark
+				pointer-events none
+			
 	&.playing // For when the card has an active track but is not expanded
 		.grad-bg.grad-bg-dark	
 				.bg-art
@@ -276,11 +281,11 @@ main-color = #f5d154
 			position absolute
 			top 0
 			right 0
-			mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 50%,rgba(255,255,255,0) 90%) 
-			mask-size 200% 100%
+			mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 60%,rgba(255,255,255,0) 90%) 
+			mask-size 240% 100%
 			mask-repeat: no-repeat;			
 			active-transition()
-			transition-timing-function ease
+			// transition-timing-function ease
 			&.zoomcursor
 				cursor zoom-in
 		.playfader
@@ -293,6 +298,7 @@ main-color = #f5d154
 			&:hover
 				opacity 1
 			.playbutton
+				active-transition()
 				position absolute
 				top calc((100% - 11vmin)/2)
 				right 3vmin
@@ -305,7 +311,7 @@ main-color = #f5d154
 				border-radius 100%
 				background-color var(--dk_bg2)
 				border 0px solid transparent
-				transition .4s ease
+				// transition .4s ease
 				.pausebutton
 					width 50px
 					height 50px
@@ -348,10 +354,12 @@ main-color = #f5d154
 			'. .   .' 1fr \
 			/ 1fr 8fr 1fr
 		active-transition()
+		&.songinfo_dark
+			pointer-events none
 		.bio
 			grid-area bio
 			font-family: Raleway, sans-serif
-			user-select none
+			// user-select none
 			transition .5s ease
 			display block
 			&.bio-dark
@@ -370,6 +378,7 @@ main-color = #f5d154
 					color var(--lt_pt)
 			.tag
 				width max-content
+				cursor pointer
 				&.nametag
 					cursor pointer
 					font-size 130%
