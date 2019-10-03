@@ -8,13 +8,18 @@ section#mainHeader
 	.userblock
 		nuxt-link.upload-button(to="/upload" @click="showUploadPanel()") Upload
 		img.useravatar(:src="user.avatarURL ? user.avatarURL : '/user.png'" :alt='user.name')
-		nuxt-link.username-text(to="/signup") {{user.name}} &#x25BC;
+		//- nuxt-link.username-text(to="/signup") {{user.name}} &#x25BC;
+		.username-text(@click="showLogin") {{user.name}} &#x25BC;
+	modal(name="hello-world")
+		p hello, world!
+		loginsignup(testmess="FUCK")
 
 </template>
 
 <script>
+import LoginSignup from '../LoginSignup/LoginSignup'
 export default {
-  name: 'name',   
+  name: 'SiteHeader',   
   data() {
     return {
 			searchPhrases:[
@@ -29,6 +34,13 @@ export default {
 		} ,  
 		resetBG(){
 			// TODO: globalise reset function with
+		},
+
+		showLogin () {
+			this.$modal.show('hello-world');
+		},
+		hideLogin () {
+			this.$modal.hide('hello-world');
 		}
   },
   props: {
@@ -41,6 +53,9 @@ export default {
 				}
 			}
 		},
+		components:{
+			LoginSignup
+		}
 	}
 }
 </script>
@@ -71,6 +86,10 @@ d-purple = #42275a
 	height headerSize
 	z-index 50
 	border-bottom darken(purple,10) 2px solid
+
+	.v--modal
+		color black
+
 	.upload-button
 		cursor pointer
 		user-select none

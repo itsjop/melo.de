@@ -113,7 +113,7 @@ body
   transition background .5s
   box-sizing border-box
 
-h1, p, a:visited, a:link
+h1, a:visited, a:link
   color white
 
 h1, h2
