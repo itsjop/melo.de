@@ -41,11 +41,10 @@ section#profile
       .pm.button-light ✉️
       .more.button-light …
   .content
-    button(@click="setRelativeGradient($refs.username, artistInfo.colors.bg_primary, artistInfo.colors.bg_secondary)") button
 </template>
 <script>
 var tinycolor = require("tinycolor2");
-import lookup from '../../mixins/lookups'
+import lookups from '../../mixins/lookups'
 export default {
   name: 'name',   
   data() {
@@ -61,6 +60,8 @@ export default {
       this.dataFetched = true
       document.documentElement.style.setProperty('--body-grad-fg', result.colors.bg_primary);
       document.documentElement.style.setProperty('--body-grad-bg', result.colors.bg_secondary);
+      document.documentElement.style.setProperty('--body-text-bg', result.colors.fg_primary);
+      document.documentElement.style.setProperty('--body-text-fg', result.colors.fg_secondary);
       setTimeout(() => { // waits a couple MS for the DOM to be prepped
         this.setRelativeGradient(this.$refs.realname, result.colors.bg_primary, result.colors.bg_secondary) 
         this.setRelativeGradient(this.$refs.location, result.colors.bg_primary, result.colors.bg_secondary) 
@@ -83,7 +84,7 @@ export default {
   },
   props: {
   },
-  mixins:[lookup]
+  mixins:[lookups]
 }
 </script>
  
@@ -140,11 +141,11 @@ export default {
       align-content center
       justify-items center
       z-index 1
-      color white
+      color var(--body-text-fg)
       text-align center
       .spacer
         width 3px
-        background white
+        background var(--body-text-bg)
 
     .profile-bg-default
       background linear-gradient(to bottom left, var(--bg1l), var(--bg2l))
@@ -197,14 +198,18 @@ export default {
       margin-left 40px
       z-index 1
       margin-right 20px
+      .grad-bg
+        color var(--body-text-bg)
       >div, >h1
+        font-size 1em
         width 100%
         display flex
         justify-content flex-end
       .artist-name
-        font-size 9vmin
+        font-size 4vmin
+        line-height 6vmin
   .tabbar
-    color white
+    color var(--body-text-bg)
     // background linear-gradient(to left, var(--bg1), var(--bg2))
     display grid
     grid-template-columns 1.4fr 1fr 1fr
@@ -225,7 +230,7 @@ export default {
           bottom -4px
           width calc(100% + 10px)
           height 4px
-          background white
+          color var(--body-text-bg)
     .follow-icons
       display grid
       grid-column 3
@@ -242,7 +247,7 @@ export default {
         border 1px white solid
         border-radius 5px
         background var(--body-grad-fg)
-        color #666
+        color var(--body-text-fg)
 
   .content
     background white

@@ -113,12 +113,15 @@ body
   transition background .5s
   box-sizing border-box
 
-h1, a:visited, a:link
-  color white
+// h1, a:visited, a:link
+//   color white
 
 h1, h2
   font-family: 'DM Sans','Questrial', serif;
-
+h1
+  font-size 2em
+h2
+  font-size 1.8em
 .anim--fadein
   opacity 0
   animation animFadein .5s ease forwards 

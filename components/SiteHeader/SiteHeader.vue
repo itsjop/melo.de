@@ -1,5 +1,5 @@
 <template lang="pug">
-section#mainHeader
+section#site-header
 	nuxt-link.logo(to="/" @click.native="resetBG")
 		img.headlogo.short-logo(src='../../assets/soundify.svg')
 		img.headlogo.full-logo(src='../../assets/soundify-logo-full.svg')
@@ -9,10 +9,10 @@ section#mainHeader
 		nuxt-link.upload-button(to="/upload" @click="showUploadPanel()") Upload
 		img.useravatar(:src="user.avatarURL ? user.avatarURL : '/user.png'" :alt='user.name')
 		//- nuxt-link.username-text(to="/signup") {{user.name}} &#x25BC;
-		.username-text(@click="showLogin") {{user.name}} &#x25BC;
-	modal(name="hello-world")
+		.username-text(@click="$modal.show('login-signup')") {{user.name}} &#x25BC;
+	modal(name="login-signup")
 		p hello, world!
-		loginsignup(testmess="FUCK")
+		login-signup(testmess="uh")
 
 </template>
 
@@ -29,33 +29,30 @@ export default {
     }
   },
   methods:{ 
-		showUploadPanel(){
-			// Show the upload panel!
-		} ,  
-		resetBG(){
-			// TODO: globalise reset function with
-		},
-
+		showUploadPanel(){ },  
+		resetBG(){ },
 		showLogin () {
 			this.$modal.show('hello-world');
 		},
 		hideLogin () {
 			this.$modal.hide('hello-world');
 		}
-  },
+	},
+	mounted(){
+	},
   props: {
     user:{
       type: Object,      
 			default() {
 				return {
-					name: "No Name",
+			 		name: "No Name",
 					avatarURL: "http://via.placeholder.com/300x300"
 				}
 			}
-		},
-		components:{
-			LoginSignup
 		}
+	},
+	components:{
+		LoginSignup,
 	}
 }
 </script>
@@ -66,7 +63,7 @@ headerSize = 40px
 l-purple = #734b6d
 d-purple = #42275a
 
-#mainHeader
+#site-header
 	width 100vw
 	box-sizing content-box
 	position sticky
@@ -86,9 +83,14 @@ d-purple = #42275a
 	height headerSize
 	z-index 50
 	border-bottom darken(purple,10) 2px solid
-
-	.v--modal
+	.v--modal-background-click
+		position relative
+	.v--modal-box
 		color black
+		position absolute
+		left 50%
+		top 50%
+		transform translate(-50%, -50%)
 
 	.upload-button
 		cursor pointer

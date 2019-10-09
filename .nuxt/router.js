@@ -19,6 +19,7 @@ const _2f187507 = () => interopDefault(import('../pages/you/index/stations/index
 const _64f79fca = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _34b97988 = () => interopDefault(import('../pages/_artistID/index.vue' /* webpackChunkName: "pages/_artistID/index" */))
 const _53f74e26 = () => interopDefault(import('../pages/_artistID/albums/index.vue' /* webpackChunkName: "pages/_artistID/albums/index" */))
+const _9c6539da = () => interopDefault(import('../pages/_artistID/edit/index.vue' /* webpackChunkName: "pages/_artistID/edit/index" */))
 const _91096718 = () => interopDefault(import('../pages/_artistID/album/_albumID/index.vue' /* webpackChunkName: "pages/_artistID/album/_albumID/index" */))
 const _997dcd88 = () => interopDefault(import('../pages/_artistID/_songID/index.vue' /* webpackChunkName: "pages/_artistID/_songID/index" */))
 const _b8413cf8 = () => interopDefault(import('../pages/_artistID/_songID/_commentID/index.vue' /* webpackChunkName: "pages/_artistID/_songID/_commentID/index" */))
@@ -98,6 +99,10 @@ export const routerOptions = {
       path: "/:artistID/albums",
       component: _53f74e26,
       name: "artistID-albums"
+    }, {
+      path: "/:artistID/edit",
+      component: _9c6539da,
+      name: "artistID-edit"
     }, {
       path: "/:artistID/album/:albumID?",
       component: _91096718,
