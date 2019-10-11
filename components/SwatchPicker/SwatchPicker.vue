@@ -98,10 +98,10 @@ export default {
       handler(newVal, oldVal) {
         console.log('Prop changed: ', newVal, ' | was: ', oldVal)
         if(this.mount){
-          this.$refs.swatches.style.setProperty('--body-grad-fg', newVal.bg_primary);
-          this.$refs.swatches.style.setProperty('--body-grad-bg', newVal.bg_secondary);
-          this.$refs.swatches.style.setProperty('--body-text-fg', newVal.fg_primary);
-          this.$refs.swatches.style.setProperty('--body-text-bg', newVal.fg_secondary);
+          document.documentElement.style.setProperty('--body-grad-fg', newVal.bg_primary);
+          document.documentElement.style.setProperty('--body-grad-bg', newVal.bg_secondary);
+          document.documentElement.style.setProperty('--body-text-fg', newVal.fg_primary);
+          document.documentElement.style.setProperty('--body-text-bg', newVal.fg_secondary);
         }
       }
     }
@@ -127,6 +127,7 @@ export default {
 @require '../../assets/grad-bg.styl'
 #quick-pallette
   padding 0 40px
+  user-select none
   text-align center
   display grid
   grid-template\
@@ -157,6 +158,7 @@ export default {
       align-content center
       position relative
       cursor pointer
+      transition 0s
       .popup
         position absolute
         height 100%
@@ -187,6 +189,7 @@ export default {
       display grid
       grid-template auto auto / auto auto 
       align-items center
+     transition 0s
     .dark-preview
       grad-bg(var(--body-grad-fg),var(--body-grad-bg))
       h1

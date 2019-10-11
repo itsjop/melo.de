@@ -137,8 +137,9 @@ h2
 #layout
   display grid
   justify-items center
-  height 100vh
+  min-height 100vh
   grid-template-rows 60px auto 50px
+  margin-bottom 50px
 
 .page-enter-active, .page-leave-active {
   transition: .2s;

@@ -44,6 +44,7 @@ section#edit-profile
           input(v-model="link.url" placeholder="Label")
           span 🗑
       hr
+  section#spacer
   swatch-picker(:colors="artistInfo.colors" @setColor="setColor")
 </template>
 
@@ -93,8 +94,12 @@ export default {
   width 60vw
   min-width 800px
   min-width 1080px
-  background white
   min-height 500px
+  >div, >section 
+    background white
+  #spacer
+    background transparent
+    height 30px
   #img-edit
     display grid
     grid-template\

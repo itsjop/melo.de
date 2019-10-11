@@ -1,5 +1,5 @@
 <template lang="pug">
-section#edit-profile
+section#edit-profile-page
   edit-profile
 </template>
 
