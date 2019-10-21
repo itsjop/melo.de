@@ -5,17 +5,20 @@ section#accessibility-checker
     .tab-item#normal(@click="vision='normal'" :class="vision==='normal'?'selected':''") Normal Vision
     .tab-item#dueter(@click="vision='deuteranomaly'" :class="vision==='deuteranomaly'?'selected':''") Deuteranomaly
     .tab-item#proto(@click="vision='protanomaly'" :class="vision==='protanomaly'?'selected':''") Protanomaly
-    .tab-item#tritan(@click="vision='tritanopia'" :class="vision==='tritanopia'?'selected':''") Tritanopia	
-  .size-toggle
-    label Header
-    input(type="checkbox" v-model="large")
-  .weight-toggle
-    label Weight
-    input(type="range" min="100" max="900" v-model="bold")
+    .tab-item#tritan(@click="vision='tritanopia'" :class="vision==='tritanopia'?'selected':''") Tritanopia
+  .control
+    .size-toggle
+      label Large Font
+      input(type="checkbox" v-model="large")
+    .weight-toggle
+      label Weight
+      input(type="range" step="10" min="100" max="900" v-model="bold")
+      label {{bold}}
   .previews.large-font
     .prev.bg-dark-1(v-for="(box, index) in boxes" :style="{ background: box.bg}" :class="box.txt===box.bg ? 'same':''")
       h1.text-preview(:style="{ color: box.txt, fontWeight: bold}" :class="large ? 'large' : '' ") Aa        
       .checker(v-if="box.txt!==box.bg" :class="(contrastChecker(box.txt, box.bg, index)==='yes' ? 'right' : (contrastChecker(box.txt, box.bg, index)==='maybe' ? 'maybe' : 'wrong' ) )")
+        .popup 
 </template>
 
 <script>
@@ -98,6 +101,14 @@ export default {
       &.selected 
         color black
         font-weight 900
+  .control
+    display flex
+    justify-content space-around
+    label 
+      font-size 18px
+    .weight-toggle
+      display flex
+      align-items center
   .previews
     display grid
     grid-template-rows repeat(5, 1fr)
@@ -148,18 +159,63 @@ export default {
         display grid 
         align-items center 
         transition .5s
+        &::before
+          pointer-events none
+        .popup
+          opacity 0
+          width 220px
+          height 50px
+          transition .5s cubic-bezier(0.680, -0.550, 0.265, 1.550)
+          transform translate(5%, 0%)
+          filter drop-shadow(3px 3px 3px #555)
+          font-size 14px
+          position absolute
+          right 0
+          bottom 0
+          pointer-events none
+          border-radius 5px
+          &::before
+            content ''
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            width 30px
+            height 10px
+            position absolute
+            bottom -10px
+            right 5%
+            background var(--popup-bg)
+        &:hover
+          .popup
+            background var(--popup-bg)
+            opacity 1
+            transform translate(5%, -70%)
+            
         &.right
           background darkgreen
           transform translate(-50%, -80%) rotate(360deg)
           &::before
             content '⎷'
+          .popup
+            --popup-bg: darkgreen
+            &:after
+              content:'This color combination meets web accessibility standards.'
         &.wrong
           background red
           &::before
             content 'X'
+          .popup
+            --popup-bg: red
+            &:after
+              content:'This color combination does not meet web accessibility standards.'
         &.maybe
           background navy
           transform translate(-50%, -80%) rotate(180deg)
+          z-index 50
           &::before
             content '~'
+          .popup
+            --popup-bg: navy
+            transform translate(81%, 70%) rotate(180deg) 
+            top 0
+            &:after
+              content:'This color combination is dubious, but might work at the right size.'
 </style>

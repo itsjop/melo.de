@@ -1,42 +1,40 @@
 <template lang="pug">
-section.song-card(ref="card")
+section.songcard(ref="card" :id="'songcard-'+index" :class="(windowWidth < 680 ? 'mobile' : 'desktop') +(activeCard? ' active-card':'')" @click="activeCard=!activeCard")
+	.grad-bg.grad-bg-light
+		.bg-art
+		.bg-playback
+	.grad-bg.grad-bg-dark
+		.bg-art
+		.bg-playback
+	.artholder
+		img.art(:src="song.albumArt")
+		.playfader
+			button.playbutton
+				label.pausebutton
+					input.pausecheck(type='checkbox' v-model="playing" @click="playing=!playing") 
+					.pp-p1
+					.pp-p2
+			//- .songloader(:id='"songloader-"+index')
 
-	.songcard(:id="'songcard-'+index" :class="(windowWidth < 680 ? 'mobile' : 'desktop') +(activeCard? ' active-card':'')" @click="activeCard=!activeCard")
-		.grad-bg.grad-bg-light
-			.bg-art
-			.bg-playback
-		.grad-bg.grad-bg-dark
-			.bg-art
-			.bg-playback
-		.artholder
-			img.art(:src="song.albumArt")
-			.playfader
-				button.playbutton
-					label.pausebutton
-						input.pausecheck(type='checkbox' v-model="playing" @click="playing=!playing") 
-						.pp-p1
-						.pp-p2
-				//- .songloader(:id='"songloader-"+index')
+	.songinfo.songinfo_light
+		.bio.bio-light
+			nuxt-link.tag.albumtag(:to="`/${song.userID}/album/${song.album}`") {{song.album}}
+			nuxt-link.tag.nametag(:to="`/${song.userID}/${song.slug}`") {{song.name}}
+			nuxt-link.tag.artisttag(:to="`/${song.userID}`") {{authorList}}
 
-		.songinfo.songinfo_light
-			.bio.bio-light
-				nuxt-link.tag.albumtag(:to="`/${song.userID}/album/${song.album}`") {{song.album}}
-				nuxt-link.tag.nametag(:to="`/${song.userID}/${song.slug}`") {{song.name}}
-				nuxt-link.tag.artisttag(:to="`/${song.userID}`") {{authorList}}
+	.songinfo.songinfo_dark
+		.bio.bio-dark
+			nuxt-link.tag.albumtag(:to="`/${song.userID}/album/${song.album}`") {{song.album}}
+			nuxt-link.tag.nametag(:to="`/${song.userID}/${song.slug}`") {{song.name}}
+			nuxt-link.tag.artisttag(:to="`/${song.userID}`") {{authorList}}
+			//- nuxt-link.tag.albumtag(@click="$emit('sidebarToggle',{type:'album',id:'4572'})") {{song.album}}
+			//- nuxt-link.tag.nametag(@click="$emit('sidebarToggle',{type:'song',id:'2457'})") {{song.name}}
+			//- nuxt-link.tag.artisttag(@click="$emit('sidebarToggle',{type:'artist',id:'1357'})") {{authorList}}
 
-		.songinfo.songinfo_dark
-			.bio.bio-dark
-				nuxt-link.tag.albumtag(:to="`/${song.userID}/album/${song.album}`") {{song.album}}
-				nuxt-link.tag.nametag(:to="`/${song.userID}/${song.slug}`") {{song.name}}
-				nuxt-link.tag.artisttag(:to="`/${song.userID}`") {{authorList}}
-				//- nuxt-link.tag.albumtag(@click="$emit('sidebarToggle',{type:'album',id:'4572'})") {{song.album}}
-				//- nuxt-link.tag.nametag(@click="$emit('sidebarToggle',{type:'song',id:'2457'})") {{song.name}}
-				//- nuxt-link.tag.artisttag(@click="$emit('sidebarToggle',{type:'artist',id:'1357'})") {{authorList}}
-
-		//- .loadingMask(:id='"loadingMask-"+index')
-			.loadAuthorBox(:id='"loadAuthorbox-"+index')
-			.loadTitleBox(:id='"loadTitleBox-"+index')
-			.loadAlbumBox(:id='"loadAlbumBox-"+index')
+	//- .loadingMask(:id='"loadingMask-"+index')
+		.loadAuthorBox(:id='"loadAuthorbox-"+index')
+		.loadTitleBox(:id='"loadTitleBox-"+index')
+		.loadAlbumBox(:id='"loadAlbumBox-"+index')
 
 
 </template>
@@ -211,7 +209,7 @@ main-color = #f5d154
 .songcard.desktop
 	width calc(100%);
 	height 15vmax
-	max-height 150px
+	max-height 170px
 	overflow hidden
 	position relative
 	display flex
@@ -220,7 +218,7 @@ main-color = #f5d154
 	border-radius inherit
 	active-transition()
 		transition .4s cubic-bezier(0.680, -0.550, 0.265, 1.550)
-
+		
 	&.active-card	// Changes to when the card is active and expanded
 		height 30vmax
 		max-height 270px

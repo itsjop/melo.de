@@ -58,11 +58,11 @@ export default {
 <style lang="stylus">
 #main-pane
   display grid 
-  width 100vw
+  width calc(100vw - 60px)
   justify-self center
   justify-content center
   justify-items center
-  max-width 1700px
+  // max-width 1700px
   margin-top 20px
   grid-template\
     "centerpane" 1fr\
@@ -93,15 +93,4 @@ export default {
     margin-bottom var(--toolbar-size)
     display grid
     overflow hidden
-    .song-card:first-child
-        border-radius 20px 20px 0 0
-    .song-card:last-child
-      border-radius 0 0 20px 20px
-// @keyframes reveal1{
-// 	from{		clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);	}
-// 	to{	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);	}
-// }@keyframes reveal2{
-// 	from{		clip-path: polygon(0 0, 30% 0, 30% 100%, 0 100%);	}
-// 	to{	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);}
-// }
 </style>

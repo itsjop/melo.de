@@ -15,6 +15,7 @@
     "@ctrl/tinycolor": "^2.5.3",
     "@nuxtjs/pwa": "^3.0.0-0",
     "color": "^3.1.2",
+    "color-blind": "^0.1.1",
     "cross-env": "^5.2.0",
     "firebase": "^6.3.1",
     "firestore": "^1.1.6",

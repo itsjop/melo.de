@@ -35,6 +35,7 @@ section#profile
       .tab-item Playlists
       .tab-item Following
     .follow-icons
+      nuxt-link.station.button-light(:to="this.$route.params.artistID+'/edit'") Edit
       .station.button-light Station
       .following.button-light Following
       .share.button-light Share

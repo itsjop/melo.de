@@ -51,6 +51,7 @@ section#edit-profile
 <script>
 import SwatchPicker from '../SwatchPicker/SwatchPicker'
 import lookups from '../../mixins/lookups'
+var blinder = require('color-blind');
 export default {
   name: 'EditProfile',   
   data() {
@@ -75,6 +76,9 @@ export default {
   methods:{
     setColor(colorsObj){
       this.artistInfo.colors = colorsObj.tempColors
+      if(colorsObj.filter !== "normal"){
+        this.artistInfo.realColors = colorsObj.tempColors
+      }
     }
   },
   props: {
