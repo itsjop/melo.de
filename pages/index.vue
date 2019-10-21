@@ -77,11 +77,12 @@ export default {
 .centerpane
   grid-area centerpane
   width 100%
-  display grid
+  display flex
+  flex-direction column
   h1
     font-size 2em
-    padding 5px
-    margin 0px 10px 10px
+    // padding 5px
+    // margin 0px 10px 10px
     color white
     // background black
     display inline 
@@ -91,6 +92,7 @@ export default {
     width 100%
     margin 0 auto
     margin-bottom var(--toolbar-size)
-    display grid
+    display flex
+    flex-direction column
     overflow hidden
 </style>

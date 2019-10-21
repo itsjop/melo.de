@@ -300,12 +300,13 @@ main-color = #f5d154
 				opacity 1
 			.playbutton
 				active-transition()
+				buttonsize = 100px
 				position absolute
-				top calc((100% - 11vmin)/2)
+				top calc((100% - 100px)/2)
 				right 3vmin
-				width 10vmin
-				height 10vmin
-				line-height 10vmin
+				width buttonsize
+				height buttonsize
+				line-height buttonsize
 				font-size 7vmin
 				color white
 				text-align center
