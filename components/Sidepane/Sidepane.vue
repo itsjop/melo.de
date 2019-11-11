@@ -50,7 +50,7 @@ export default {
 
 <style lang="stylus">
 #sidepane
-  border-radius 20px
+  // border-radius 20px
   height 100%
   width calc(100% - 24px)
   border 0px solid white

@@ -51,6 +51,7 @@ export default {
 	computed:{
 		slug(){
       let tempSlug = this.trackName.replace(/[|&;$%@"<>()+,]/g, "").replace(/[ ]/g, "-")
+      if(tempSlug==="") tempSlug="your-track-name"
 			return tempSlug
     },
   },
@@ -74,6 +75,7 @@ export default {
   max-width 700px
   border-radius 10px
   display grid
+  background white
   grid-template:\
     "album file" auto \
     "album title" auto \
@@ -84,12 +86,16 @@ export default {
     "submit submit" auto \
     / 1fr 2fr
   gap 20px
+  
+  h1
+    font-size 1.7em
   >*
     width 100%
-    input
-      width calc(100% - 10px)
-    textarea
+    input, textarea
       width 100%
+    textarea
+      resize none
+      border 1px solid #ccc
   .file-uploader
     grid-area file
   .image-uploader
@@ -110,7 +116,7 @@ export default {
       input 
         width unset
     label
-      color white
+      color #666
   .submit-info
     grid-area submit
     display flex

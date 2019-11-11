@@ -1,5 +1,6 @@
 <template lang="pug">
 section.songcard(ref="card" :id="'songcard-'+index" :class="(windowWidth < 680 ? 'mobile' : 'desktop') +(activeCard? ' active-card':'')" @click="activeCard=!activeCard")
+	.blurrer.blurrer-top
 	.grad-bg.grad-bg-light
 		.bg-art
 		.bg-playback
@@ -35,7 +36,7 @@ section.songcard(ref="card" :id="'songcard-'+index" :class="(windowWidth < 680 ?
 		.loadAuthorBox(:id='"loadAuthorbox-"+index')
 		.loadTitleBox(:id='"loadTitleBox-"+index')
 		.loadAlbumBox(:id='"loadAlbumBox-"+index')
-
+	.blurrer.blurrer-bottom
 
 </template>
 
@@ -157,65 +158,21 @@ main-color = #f5d154
 			pointer cursor
 		.playfader
 			display none
-		// .playfader
-		// 	grid-column 1/2
-		// 	grid-row 1/2
-		// 	width 50%
-		// 	height 50%
-		// 	transition .3s ease
-		// 	position relative
-		// 	display grid
-		// 	justify-items center
-		// 	align-items center
-		// 	&:hover
-		// 		opacity 1
-		// 	.playbutton
-		// 		width 100%
-		// 		height 100%
-		// 		line-height 10vmin
-		// 		font-size 7vmin
-		// 		color white
-		// 		text-align center
-		// 		border-radius 100%
-		// 		background-color var(--dk_bg2)
-		// 		border 0px solid transparent
-		// 		transition .4s ease
-		// 		.pausebutton
-		// 			width 50%
-		// 			height 50%
-		// 			position: absolute;
-		// 			left: 50%;
-		// 			top: 50%;
-		// 			transform: translate(-50%, -50%) rotate(0deg);
-		// 			transition .1s ease
-		// 		.pp-p1,.pp-p2
-		// 			width playscale
-		// 			height playscale
-		// 			background white
-		// 			position: absolute;
-		// 			transition .2s ease-in
-		// 			left: 50%;
-		// 			top: 50%;
-		// 		.pp-p1
-		// 			transform: translate(0%, -50%);
-		// 			clip-path: polygon(0 23%, 60% 50%,55% 50%, 0 76%);
-		// 		.pp-p2
-		// 			transform: translate(-42%, -50%);
-		// 			clip-path: polygon(0 2%, 43% 23%, 43% 76%, 0% 96%);
-
-
-
 
 .songcard.desktop
-	width calc(100%);
+	width 100%
 	height 15vmax
 	max-height 170px
-	overflow hidden
+	--blur-gap: 40px
+	--blur-height: 40px
+	// margin 0 0 var(--blur-gap) 0
+	// overflow hidden
 	position relative
 	display flex
 	background white
 	transition .4s ease
 	border-radius inherit
+	// margin-bottom -20px
 	active-transition()
 		transition .4s cubic-bezier(0.680, -0.550, 0.265, 1.550)
 		
@@ -273,6 +230,7 @@ main-color = #f5d154
 		position relative
 		width 30%
 		height 100%
+		z-index 5
 		active-transition()
 		.art 
 			mask-position 100% 80%
@@ -385,16 +343,19 @@ main-color = #f5d154
 					cursor pointer
 					font-size 130%
 					line-height 130%
-	
-	
-
-	
-
-
-	
-
-
-
-
-
+	.blurrer
+		position absolute
+		width 100%
+		height var(--blur-height)
+		&.blurrer-top
+			top calc(var(--blur-gap) * -1)
+			z-index 2
+			background linear-gradient(to right, var(--lt_bg1) 0%,  var(--lt_bg1) 20%, var(--lt_bg2) 100%)
+			mask-image linear-gradient(to top, black, transparent)
+		// &.blurrer-bottom
+		// 	bottom calc(var(--blur-gap) * -1)
+		// 	z-index 1
+		// 	background linear-gradient(to right, var(--lt_bg1) 0%,  var(--lt_bg1) 20%, var(--lt_bg2) 100%)
+		// 	// mask-image linear-gradient(to top, black, transparent)
+		
 </style>

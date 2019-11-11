@@ -47,7 +47,7 @@ section#profile
 var tinycolor = require("tinycolor2");
 import lookups from '../../mixins/lookups'
 export default {
-  name: 'name',   
+  name: 'artist-page',   
   data() {
     return {
       dataFetched: false,
@@ -242,13 +242,13 @@ export default {
       gap 10px
       font-size 14px
       font-weight 200
-      .button-light
-        cursor pointer
-        padding 5px 5px 4px
-        border 1px white solid
-        border-radius 5px
-        background var(--body-grad-fg)
-        color var(--body-text-fg)
+    .button-light
+      cursor pointer
+      padding 5px 5px 4px
+      border 1px white solid
+      border-radius 5px
+      background var(--body-grad-fg)
+      color var(--body-text-fg)
 
   .content
     background white

@@ -17,20 +17,35 @@ export default {
   name: 'FrontPage',   
   data() {
     return {
-      songList:[]
+      users: []
     }
   },
   firestore() {
     return {
       reptiles: db.collection('reptiles'),
-      users: db.collection('users'),
+      users: {
+        // collection reference.
+        ref: db.collection('users'),
+        // Bind the collection as an object if you would like to.
+        // objects: true,
+        resolve: (data) => {
+          // collection is resolved
+          console.log(data)
+          console.log("users2",db.collection('users').doc([this.users[0]['key']]).collection('songs'))
+          this.createUserFeed(this.users)
+        },
+        reject: (err) => {
+          // collection is rejected
+        }
+      },
       songList: db.collection('songs'),
     }
   },
   mounted(){
 			// TODO: globalise reset function with arguments for colors
 			document.documentElement.style.setProperty('--body-grad-fg', "#734b6d");
-			document.documentElement.style.setProperty('--body-grad-bg', "#42275a");
+      document.documentElement.style.setProperty('--body-grad-bg', "#42275a");
+      console.log("users1",this.users)
   },
   methods:{
     sidebarToggle(payload){

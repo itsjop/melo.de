@@ -85,8 +85,8 @@ body
   width 100vw
   min-height 100vh
   font-family: Montserrat, sans-serif
-  background: linear-gradient(to left, #f4edf5, #f4edf5)
-  background: linear-gradient(to left, var(--body-grad-bg), var(--body-grad-fg))
+  // background: linear-gradient(to left, #f4edf5, #f4edf5)
+  // background: linear-gradient(to left, var(--body-grad-bg), var(--body-grad-fg))
   position relative
   z-index -10
   &::before, &::after
